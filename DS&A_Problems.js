@@ -71,3 +71,59 @@ const compress = (s) => {
   
   return result.join('');
 };
+
+// SQLBolt part 2
+SELECT * FROM movies where id = 6;
+
+SELECT * FROM movies where year between 2000 and 2010;
+
+SELECT * FROM movies where year not between 2000 and 2010;
+
+SELECT * FROM movies order by year asc limit 5;
+
+// SQLBolt part 3
+SELECT * FROM movies where title like "%toy%";
+
+SELECT * FROM movies where director = "John Lasseter";
+
+SELECT * FROM movies where director not like "John Lasseter";
+
+SELECT * FROM movies where title like "%WALL%";
+
+// SQLBolt part 4
+
+SELECT distinct director FROM movies order by director asc;
+
+SELECT title FROM movies order by year desc limit 4;
+
+SELECT title FROM movies order by title asc limit 5;
+
+SELECT title FROM movies order by title asc limit 5 offset 5;
+
+// SQLBolt simple select queries
+
+SELECT city, population FROM north_american_cities where country = "Canada";
+
+SELECT * FROM north_american_cities where Country = "United States" ORDER BY Latitude desc;
+
+SELECT * FROM north_american_cities WHERE Longitude < -88 ORDER BY Longitude asc;
+
+SELECT * FROM north_american_cities WHERE Country = "Mexico" ORDER BY Population desc LIMIT 2;
+
+SELECT * FROM north_american_cities WHERE Country = "United States" ORDER BY Population desc LIMIT 2 OFFSET 2;
+
+// SQLBolt Outer Joins
+
+SELECT Distinct Building_name FROM employees
+    LEFT JOIN Buildings
+    ON Employees.Building = Buildings.Building_name
+WHERE Building_name Is Not Null;
+
+SELECT * FROM Buildings;
+
+SELECT Distinct Role, building_name FROM Buildings
+    LEFT JOIN Employees
+    ON Buildings.Building_name = Employees.Building;
+
+// SQLBolt A short note on NULLs
+
