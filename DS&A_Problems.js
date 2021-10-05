@@ -127,3 +127,40 @@ SELECT Distinct Role, building_name FROM Buildings
 
 // SQLBolt A short note on NULLs
 
+SELECT * FROM employees WHERE Building Is Null;
+
+SELECT * FROM Buildings 
+    LEFT JOIN Employees
+    ON Buildings.Building_name = Employees.Building
+    WHERE Building Is Null;
+
+// SQL Bolt Queries with expressions
+
+SELECT title, (domestic_sales + international_sales) / 1000000 AS gross_sales_millions
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+
+SELECT title, Rating * 10 AS gross_sales_millions
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+
+SELECT title
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+WHERE year % 2 = 0;
+
+// SQL Bolt Queries with aggregates (Pt. 1)
+
+SELECT * FROM employees 
+ORDER BY Years_employed desc
+limit 1;
+
+SELECT role, AVG(Years_employed) FROM employees GROUP BY Role;
+
+SELECT building, sum(Years_employed) FROM employees GROUP BY building;
+
+// Queries with aggregates (Pt. 2)
+
