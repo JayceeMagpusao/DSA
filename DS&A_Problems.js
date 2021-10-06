@@ -162,5 +162,51 @@ SELECT role, AVG(Years_employed) FROM employees GROUP BY Role;
 
 SELECT building, sum(Years_employed) FROM employees GROUP BY building;
 
-// Queries with aggregates (Pt. 2)
+// SQL Bolt Queries with aggregates (Pt. 2)
+
+SELECT role, count(*)FROM employees
+WHERE role = 'Artist';
+
+SELECT role, count(*)FROM employees
+GROUP BY role;
+
+SELECT sum(Years_employed) FROM employees
+WHERE role = "Engineer";
+
+// SQL Bolt Order of execution of a Query
+
+SELECT director, count(*) FROM movies
+GROUP BY director;
+
+SELECT director, sum(domestic_sales + international_sales) as Sales FROM movies
+    INNER JOIN Boxoffice
+    on Movies.id = Boxoffice.Movie_id
+GROUP BY director;
+
+// SQL Bolt Inserting rows
+
+INSERT INTO Movies
+VALUES (4, "Toy Story 4", "John Lasseter", 2021, 27);
+
+INSERT INTO Boxoffice
+VALUES (4, 8.7, 340000000, 270000000);
+
+// SQL Bolt Updating rows
+
+UPDATE Movies
+SET Director = "John Lasseter"
+WHERE id = 2;
+
+UPDATE Movies
+SET Year = 1999
+WHERE id = 3;
+
+UPDATE Movies
+SET title = "Toy Story 3", director = "Lee Unkrich"
+WHERE id = 11;
+
+// SQL Deleting rows
+
+DELETE FROM Movies
+WHERE Year < 2005;
 
