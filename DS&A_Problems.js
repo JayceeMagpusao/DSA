@@ -205,8 +205,32 @@ UPDATE Movies
 SET title = "Toy Story 3", director = "Lee Unkrich"
 WHERE id = 11;
 
-// SQL Deleting rows
+// SQL Bolt Deleting rows
 
 DELETE FROM Movies
 WHERE Year < 2005;
 
+DELETE FROM Movies
+WHERE Director = "Andrew Stanton"
+
+// SQL Bolt Creating tables
+
+CREATE TABLE database (
+    name TEXT,
+    version INTEGER,
+    Download_count INTEGER
+);
+
+// SQL Bolt Altering tables
+
+ALTER TABLE movies
+ADD Aspect_ratio float
+
+ALTER TABLE movies
+ADD Aspect_ratio float
+
+// SQL Bolt Dropping tables
+
+DROP TABLE Movies
+
+DROP TABLE Boxoffices
