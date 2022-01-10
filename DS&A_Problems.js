@@ -254,3 +254,47 @@ const uncompress = (s) => {
   }
   return result.join('');
 };
+
+// https://leetcode.com/problems/final-value-of-variable-after-performing-operations/submissions/
+var finalValueAfterOperations = function(operations) {
+    let x = 0;
+    
+    for (let i = 0; i < operations.length; i++) {
+        let operation = operations[i];
+        let isInc = operation === "++X" || operation === "X++";
+        let isDec = operation === "--X" || operation === "X--";
+        
+        if (isInc) {
+            x = x + 1;
+        } else if (isDec) {
+            x = x - 1;
+        }
+    }
+    return x;
+};
+
+// https://leetcode.com/problems/jewels-and-stones/submissions/
+var numJewelsInStones = function(jewels, stones) {
+    jewelArr = jewels.split("");
+    stoneArr = stones.split("")
+    let counter = 0;
+    
+    stoneArr.forEach(stone => {
+        if(jewelArr.includes(stone))
+            counter++
+    });
+    return counter;
+};
+
+// https://leetcode.com/problems/remove-element/submissions/
+var removeElement = function(nums, val) {
+    for(let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+        
+        if(num === val){
+            nums.splice(i, 1);
+            
+            i--;
+        }
+    }
+};
