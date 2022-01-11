@@ -298,3 +298,47 @@ var removeElement = function(nums, val) {
         }
     }
 };
+
+// https://leetcode.com/problems/maximum-subarray/submissions/
+var maxSubArray = function(nums) {
+    let currMax = 0;
+    let maxSubArr = -Infinity;
+    
+    for (let i = 0; i < nums.length; i++){
+        let num = nums[i];
+        
+        currMax = Math.max(num, currMax + num);
+        maxSubArr = Math.max(currMax, maxSubArr);
+    }
+    
+    return maxSubArr;
+};
+
+// https://leetcode.com/problems/valid-parentheses/submissions/
+var isValid = function(s) {
+  const left = [];
+  const legend = {
+    '(': ')',
+    '{': '}',
+    '[': ']'
+  };
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
+      left.push(s[i]);    
+    } else if (legend[left.pop()] !== s[i]) {
+      return false;
+    }
+  }
+  return left.length ? false : true;
+};
+
+// https://leetcode.com/problems/merge-two-sorted-lists/submissions/
+var mergeTwoLists = function(list1, list2) {
+    if (!list1 && !list2) return null;
+    if (!list1) return list2;
+    if (!list2) return list1;
+    
+    return (list1.val < list2.val) ? 
+        {...list1, next: mergeTwoLists(list1.next, list2)} :
+        {...list2, next: mergeTwoLists(list1, list2.next)}
+};
