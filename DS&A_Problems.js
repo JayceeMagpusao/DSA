@@ -366,3 +366,29 @@ function maxTickets(tickets) {
     return counter;
 }
 
+function maxPosPrefixes(arr) {
+    let sortArr = arr.sort().reverse();
+    let results = [];
+    let counter = 0;
+    
+    for (let i = 0; i < sortArr.length; i++){
+        let num = sortArr[i];
+        let prevNum = results[i - 1];
+        let resSum = num + prevNum;
+        
+        if (results.length === 0){
+            if (num > 0){
+                counter ++
+            }
+            results.push(num);
+        } else if (results.length !== 0){
+            if (resSum > 0){
+                counter++;
+            }
+            results.push(resSum);
+        } 
+    }
+    
+    return counter;
+
+}
