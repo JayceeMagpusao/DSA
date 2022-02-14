@@ -342,3 +342,27 @@ var mergeTwoLists = function(list1, list2) {
         {...list1, next: mergeTwoLists(list1.next, list2)} :
         {...list2, next: mergeTwoLists(list1, list2.next)}
 };
+
+// Hacker rank challenge
+function maxTickets(tickets) {
+    let sortedTickets = tickets.sort().reverse();
+    let counter = 0;
+    let maxCounter = 0;
+    
+    for (let i = 0; i < sortedTickets.length; i++){
+       let ticket = sortedTickets[i];
+       let nextTicket = sortedTickets[i + 1];
+       
+       if(ticket - nextTicket < 2){
+        counter++
+       }
+        // else {
+        //    if(counter > maxCounter){
+        //        maxCounter = counter;
+        //    }
+        //    counter = 0;
+    //    }
+    }
+    return counter;
+}
+
