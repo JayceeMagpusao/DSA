@@ -392,3 +392,50 @@ function maxPosPrefixes(arr) {
     return counter;
 
 }
+
+Hackerrank Challenge
+function numberOfCharactersEscaped(expression) {
+    let expressionArr = expression.split('');
+    let letterStr = 'abcdefghijklmnopqrstuvwxyz';
+    let counter = 0;
+    
+    
+    for(let i = 1; i < expressionArr.length - 1; i++){
+        let char1 = expressionArr[i];
+        let char2 = expressionArr[i + 1];
+        let char3 = expressionArr[i - 1];
+        let char4 = expressionArr[i + 2];
+        let isExclamation = char1 === '!';
+        let isNotHash = char3 !== '#';
+        let isHash = char4 === '#';
+        
+        if(letterStr.includes(char2) && isExclamation && isNotHash && isHash){
+            counter++
+        }
+    }
+    
+    return counter;
+}
+
+function numberOfCharactersEscaped(expression) {
+    let expressionArr = expression.split('');
+    let letterStr = 'abcdefghijklmnopqrstuvwxyz';
+    let counter = 0;
+    
+    
+    for(let i = 1; i < expressionArr.length - 1; i++){
+        let char1 = expressionArr[i];
+        let char2 = expressionArr[i + 1];
+        let char3 = expressionArr[i - 1];
+        let char4 = expressionArr[i + 2];
+        let isExclamation = char1 === '!';
+        let isNotHash = char3 !== '#';
+        let isHash = char4 === '#';
+        
+        if(letterStr.includes(char2) && isExclamation && isNotHash && isHash){
+            counter++
+        }
+    }
+    
+    return counter;
+}
